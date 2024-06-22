@@ -73,7 +73,7 @@ const PackingDetails = () => {
     };
 
     try {
-      const response = await fetch(`https://slip-management.onrender.com/api/slip/add-slip`, {
+      const response = await fetch(`https://slip-management-backend.onrender.com/api/slip/add-slip`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

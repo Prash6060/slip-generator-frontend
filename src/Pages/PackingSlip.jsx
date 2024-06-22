@@ -13,7 +13,7 @@ const PackingSlip = () => {
 
   const getSlipDetails = async () => {
     try {
-      const response = await fetch(`https://slip-management.onrender.com/api/slip/view-slip/${slipNo}`);
+      const response = await fetch(`https://slip-management-backend.onrender.com/api/slip/view-slip/${slipNo}`);
       const data = await response.json();
       if (response.ok) {
         setSlipDetails(data);
