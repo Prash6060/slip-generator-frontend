@@ -8,7 +8,12 @@ const PackingSlip = () => {
   const [error, setError] = useState('');
 
   const handleInputChange = (e) => {
-    setSlipNo(e.target.value);
+    setSlipNo(e.target.value.toUpperCase());
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission (page refresh)
+    await getSlipDetails();
   };
 
   const getSlipDetails = async () => {
@@ -34,7 +39,7 @@ const PackingSlip = () => {
         <Col xs={12} md={8}>
           <div className="shadow p-4 mb-4 rounded" style={{ backgroundColor: '#f8f9fa' }}>
             <h1 className="text-center mb-4">Enter Packing Slip No</h1>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group controlId="slipNo">
                 <Form.Label>Packing Slip No</Form.Label>
                 <Form.Control
@@ -45,7 +50,7 @@ const PackingSlip = () => {
                 />
               </Form.Group>
               <div className="text-center mt-4">
-                <Button variant="primary" onClick={getSlipDetails}>
+                <Button variant="primary" type="submit">
                   Get Details
                 </Button>
               </div>
